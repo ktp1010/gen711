@@ -1,4 +1,4 @@
-Mkdir final711
+ Mkdir final711
 Mkdir ananconda
 cd anaconda
 curl -LO https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh

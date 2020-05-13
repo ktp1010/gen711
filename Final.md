@@ -1,6 +1,9 @@
 > Mkdir final711
+
 > Mkdir ananconda
+
 > cd anaconda
+
 curl -LO https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh
 bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p $HOME/anaconda/install/
 echo ". $HOME/anaconda/install/etc/profile.d/conda.sh" >> ~/.bashrc

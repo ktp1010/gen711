@@ -25,38 +25,38 @@ Once that was done, I dowloaded the data I used from the ensemble database. I ch
 > wget ftp://ftp.ensembl.org/pub/release-99/fasta/ictidomys_tridecemlineatus/pep/Ictidomys_tridecemlineatus.SpeTri2.0.pep.all.fa.gz  
 > wget ftp://ftp.ensembl.org/pub/release-100/fasta/homo_sapiens/pep/Homo_sapiens.GRCh38.pep.all.fa.gz  
  
+ Next, I unzipped the files using the gzip - d command
+> gzip -d Mus_musculus.GRCm38.pep.all.fa.gz  
+> gzip -d Octodon_degus.OctDeg1.0.pep.all.fa.gz  
+> gzip -d Castor_canadensis.C.can_genome_v1.0.pep.all.fa.gz  
+> gzip -d Urocitellus_parryii.ASM342692v1.pep.all.fa.gz  
+> gzip -d Cavia_porcellus.Cavpor3.0.pep.all.fa.gz  
+> gzip -d Rattus_norvegicus.Rnor_6.0.pep.all.fa.gz  
+> gzip -d Peromyscus_maniculatus_bairdii.HU_Pman_2.1.pep.all.fa.gz  
+> gzip -d Ictidomys_tridecemlineatus.SpeTri2.0.pep.all.fa.gz  
+> gzip -d Homo_sapiens.GRCh38.pep.all.fa.gz  
  
-gzip -d Mus_musculus.GRCm38.pep.all.fa.gz
-gzip -d Octodon_degus.OctDeg1.0.pep.all.fa.gz
-gzip -d Castor_canadensis.C.can_genome_v1.0.pep.all.fa.gz
-gzip -d Urocitellus_parryii.ASM342692v1.pep.all.fa.gz
-gzip -d Cavia_porcellus.Cavpor3.0.pep.all.fa.gz
-gzip -d Rattus_norvegicus.Rnor_6.0.pep.all.fa.gz
-gzip -d Peromyscus_maniculatus_bairdii.HU_Pman_2.1.pep.all.fa.gz
-gzip -d Ictidomys_tridecemlineatus.SpeTri2.0.pep.all.fa.gz
-gzip -d Homo_sapiens.GRCh38.pep.all.fa.gz
+ The files were unfortunately wrapped, thus I used the following commands to change their formatting into a more accessible form for the purpose of my lab.
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Mus_musculus.GRCm38.pep.all.fa > mouse_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Octodon_degus.OctDeg1.0.pep.all.fa > degu_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Castor_canadensis.C.can_genome_v1.0.pep.all.fa >beaver_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Urocitellus_parryii.ASM342692v1.pep.all.fa > groundsquirrel_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Cavia_porcellus.Cavpor3.0.pep.all.fa > guineapig_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Rattus_norvegicus.Rnor_6.0.pep.all.fa > rat_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Peromyscus_maniculatus_bairdii.HU_Pman_2.1.pep.all.fa > deermouse_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Ictidomys_tridecemlineatus.SpeTri2.0.pep.all.fa > squirrel_unwrap.fa  
+> awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Homo_sapiens.GRCh38.pep.all.fa > human_unwrap.fa  
  
- 
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Mus_musculus.GRCm38.pep.all.fa > mouse_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Octodon_degus.OctDeg1.0.pep.all.fa > degu_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Castor_canadensis.C.can_genome_v1.0.pep.all.fa >beaver_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Urocitellus_parryii.ASM342692v1.pep.all.fa > groundsquirrel_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Cavia_porcellus.Cavpor3.0.pep.all.fa > guineapig_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Rattus_norvegicus.Rnor_6.0.pep.all.fa > rat_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Peromyscus_maniculatus_bairdii.HU_Pman_2.1.pep.all.fa > deermouse_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Ictidomys_tridecemlineatus.SpeTri2.0.pep.all.fa > squirrel_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Homo_sapiens.GRCh38.pep.all.fa > human_unwrap.fa
- 
- 
-grep -A 1 "gene_symbol:Insr " mouse_unwrap.fa > mouse_insr.fa
-grep -A 1 "gene_symbol:INSR " degu_unwrap.fa > degu_insr.fa
-grep -A 1 "gene_symbol:Insr " beaver_unwrap.fa > beaver_insr.fa
-grep -A 1 "gene_symbol:INSR " groundsquirrel_unwrap.fa > groundsquirrel_insr.fa
-grep -A 1 "gene_symbol:INSR " guineapig_unwrap.fa > guineapig_insr.fa
-grep -A 1 "gene_symbol:Insr " rat_unwrap.fa > rat_insr.fa
-grep -A 1 "gene_symbol:Insr " deermouse_unwrap.fa > deermouse_insr.fa
-grep -A 1 "gene_symbol:INSR " squirrel_unwrap.fa > squirrel_insr.fa
-grep -A 1 "gene_symbol:INSR " human_unwrap.fa > human_insr.fa
+I wanted to know the evolutionary relationship of the Insr gene in rodents and its relationship to humans. To do this, I messed around with grep commands to find the particular insulin related gene I needed, as there were many when the term "insulin" was used. I find the insulin receptor gene, there were two grep searches I used; "gene_symbol: Insr" or "gene_symbol: INSR". Both of these terms brought up the same gene, but each file had a different fromatting for the capitalization of this gene.
+> grep -A 1 "gene_symbol:Insr " mouse_unwrap.fa > mouse_insr.fa  
+> grep -A 1 "gene_symbol:INSR " degu_unwrap.fa > degu_insr.fa  
+> grep -A 1 "gene_symbol:Insr " beaver_unwrap.fa > beaver_insr.fa  
+> grep -A 1 "gene_symbol:INSR " groundsquirrel_unwrap.fa > groundsquirrel_insr.fa  
+> grep -A 1 "gene_symbol:INSR " guineapig_unwrap.fa > guineapig_insr.fa  
+> grep -A 1 "gene_symbol:Insr " rat_unwrap.fa > rat_insr.fa  
+> grep -A 1 "gene_symbol:Insr " deermouse_unwrap.fa > deermouse_insr.fa  
+> grep -A 1 "gene_symbol:INSR " squirrel_unwrap.fa > squirrel_insr.fa  
+> grep -A 1 "gene_symbol:INSR " human_unwrap.fa > human_insr.fa  
  
  
 awk '/^>/{print ">mouse_" ++i; next}{print}' mouse_insr.fa > header_mouse_insr.fa

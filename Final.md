@@ -1,19 +1,17 @@
 > Mkdir final711  
 > Mkdir ananconda  
 > cd anaconda  
-
-curl -LO https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh
-bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p $HOME/anaconda/install/
-echo ". $HOME/anaconda/install/etc/profile.d/conda.sh" >> ~/.bashrc
-source ~/.bashrc
-conda update -n base conda
-conda create -y --name gen711
-Cd final711
-sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt install iqtree
-sudo apt install mafft
-
+> curl -LO https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh. 
+> bash Anaconda3-5.1.0-Linux-x86_64.sh -b -p $HOME/anaconda/install/
+> echo ". $HOME/anaconda/install/etc/profile.d/conda.sh" >> ~/.bashrc
+> source ~/.bashrc
+> conda update -n base conda
+> conda create -y --name gen711
+> sudo apt-get update
+> sudo apt-get -y upgrade
+> sudo apt install iqtree
+> sudo apt install mafft
+> Cd final711
 
 
 wget ftp://ftp.ensembl.org/pub/release-100/fasta/mus_musculus/pep/Mus_musculus.GRCm38.pep.all.fa.gz

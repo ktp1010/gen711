@@ -15,7 +15,7 @@ sudo apt install mafft
 
 
 
-<wget ftp://ftp.ensembl.org/pub/release-100/fasta/mus_musculus/pep/Mus_musculus.GRCm38.pep.all.fa.gz>
+wget ftp://ftp.ensembl.org/pub/release-100/fasta/mus_musculus/pep/Mus_musculus.GRCm38.pep.all.fa.gz
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/octodon_degus/pep/Octodon_degus.OctDeg1.0.pep.all.fa.gz
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/castor_canadensis/pep/Castor_canadensis.C.can_genome_v1.0.pep.all.fa.gz
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/urocitellus_parryii/pep/Urocitellus_parryii.ASM342692v1.pep.all.fa.gz
@@ -74,3 +74,5 @@ cat header_beaver_insr.fa header_deermouse_insr.fa header_degu_insr.fa header_gr
 mafft --auto header_complete.fa > insr_complete.fa
  
 iqtree -s insr_complete.fa -m LG -bb 1000 -pre insr
+
+

@@ -39,8 +39,7 @@ gzip -d Homo_sapiens.GRCh38.pep.all.fa.gz
  
 awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Mus_musculus.GRCm38.pep.all.fa > mouse_unwrap.fa
 awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Octodon_degus.OctDeg1.0.pep.all.fa > degu_unwrap.fa
-awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Castor_canadensis.C.can_genome_v1.0.pep.all.fa
->beaver_unwrap.fa
+awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Castor_canadensis.C.can_genome_v1.0.pep.all.fa >beaver_unwrap.fa
 awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Urocitellus_parryii.ASM342692v1.pep.all.fa > groundsquirrel_unwrap.fa
 awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Cavia_porcellus.Cavpor3.0.pep.all.fa > guineapig_unwrap.fa
 awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' Rattus_norvegicus.Rnor_6.0.pep.all.fa > rat_unwrap.fa

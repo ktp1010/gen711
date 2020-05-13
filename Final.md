@@ -58,20 +58,25 @@ I wanted to know the evolutionary relationship of the Insr gene in rodents and i
 > grep -A 1 "gene_symbol:INSR " squirrel_unwrap.fa > squirrel_insr.fa  
 > grep -A 1 "gene_symbol:INSR " human_unwrap.fa > human_insr.fa  
  
+ Next, the headers of these files were long with information unneccessary for the question I was asking. Thus, using the folling commands, I renamed the headers to (species name_) for ease of reading the files and the pulled sequences. It is also useful to have the shorter headers when constructing the phylogenetic tree.
+> awk '/^>/{print ">mouse_" ++i; next}{print}' mouse_insr.fa > header_mouse_insr.fa  
+> awk '/^>/{print ">degu_" ++i; next}{print}' degu_insr.fa > header_degu_insr.fa  
+> awk '/^>/{print ">beaver_" ++i; next}{print}' beaver_insr.fa > header_beaver_insr.fa  
+> awk '/^>/{print ">groundsquirrel_" ++i; next}{print}' groundsquirrel_insr.fa > header_groundsquirrel_insr.fa  
+> awk '/^>/{print ">guineapig_" ++i; next}{print}' guineapig_insr.fa > header_guineapig_insr.fa  
+> awk '/^>/{print ">rat_" ++i; next}{print}' rat_insr.fa > header_rat_insr.fa  
+> awk '/^>/{print ">squirrel_" ++i; next}{print}' squirrel_insr.fa > header_squirrel_insr.fa  
+> awk '/^>/{print ">human_" ++i; next}{print}' human_insr.fa > header_human_insr.fa  
  
-awk '/^>/{print ">mouse_" ++i; next}{print}' mouse_insr.fa > header_mouse_insr.fa
-awk '/^>/{print ">degu_" ++i; next}{print}' degu_insr.fa > header_degu_insr.fa
-awk '/^>/{print ">beaver_" ++i; next}{print}' beaver_insr.fa > header_beaver_insr.fa
-awk '/^>/{print ">groundsquirrel_" ++i; next}{print}' groundsquirrel_insr.fa > header_groundsquirrel_insr.fa
-awk '/^>/{print ">guineapig_" ++i; next}{print}' guineapig_insr.fa > header_guineapig_insr.fa
-awk '/^>/{print ">rat_" ++i; next}{print}' rat_insr.fa > header_rat_insr.fa
-awk '/^>/{print ">squirrel_" ++i; next}{print}' squirrel_insr.fa > header_squirrel_insr.fa
-awk '/^>/{print ">human_" ++i; next}{print}' human_insr.fa > header_human_insr.fa
+Next, I combined the new files made in the previous step into a single file
+> cat header_beaver_insr.fa header_deermouse_insr.fa header_degu_insr.fa header_groundsquirrel_insr.fa header_guineapig_insr.fa header_human_insr.fa header_mouse_insr.fa header_rat_insr.fa header_squirrel_insr.fa > header_complete.fa   
+
+Next, I used mafft with the default multiple sequence alignment settings.
+> mafft --auto header_complete.fa > insr_complete.fa  
  
-cat header_beaver_insr.fa header_deermouse_insr.fa header_degu_insr.fa header_groundsquirrel_insr.fa header_guineapig_insr.fa header_human_insr.fa header_mouse_insr.fa header_rat_insr.fa header_squirrel_insr.fa > header_complete.fa
- 
-mafft --auto header_complete.fa > insr_complete.fa
- 
-iqtree -s insr_complete.fa -m LG -bb 1000 -pre insr
+Next, I used iqtree to contruct the phylogenetic tree.
+> iqtree -s insr_complete.fa -m LG -bb 1000 -pre insr  
+
+To construct the tree, I used cat on the contree file produced by this command, and copy and pasted the information into FigTree v1.4.4. Once in this program, I rerooted the tree to have humans as the outgroup. I added the bootstrap value labels to the nodes. Finally, I aligned the tip labels, as I found the tree to be easier to read and more aesthetically pleasing that way.
 
 

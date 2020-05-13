@@ -80,6 +80,8 @@ Next, I used iqtree to contruct the phylogenetic tree.
 To construct the tree, I used cat on the contree file produced by this command, and copy and pasted the information into FigTree v1.4.4. Once in this program, I rerooted the tree to have humans as the outgroup. I added the bootstrap value labels to the nodes. Finally, I aligned the tip labels, as I found the tree to be easier to read and more aesthetically pleasing that way.
 
 The constructed tree can be seen below
+
+
 #NEXUS
 begin trees;
 	tree tree_1 = [&R] ((((((deermouse_1:0.001199,(deermouse_2:2.0E-6,deermouse_3:2.0E-6)[&label=99]:0.007788)[&label=100]:0.037253,mouse_1:0.091804)[&label=58]:0.014074,((mouse_2:2.0E-6,mouse_3:9.34E-4)[&label=93]:0.003322,(rat_1:2.0E-6,rat_2:0.00223)[&label=89]:0.005427)[&label=50]:0.004501)[&label=100]:0.030318,((((degu_1:3.0E-6,degu_4:0.012785)[&label=92]:0.001047,(degu_2:4.38E-4,degu_3:5.82E-4)[&label=100]:0.022919)[&label=100]:0.042368,(guineapig_1:2.0E-6,guineapig_2:2.0E-6)[&label=100]:0.020549)[&label=100]:0.022846,((groundsquirrel_1:7.44E-4,groundsquirrel_2:2.0E-6)[&label=61]:2.0E-6,(squirrel_1:2.0E-6,squirrel_2:3.0E-6)[&label=100]:0.0078)[&label=100]:0.025336)[&label=95]:0.007574)[&label=53]:0.002272,(beaver_1:2.0E-6,(((beaver_2:0.033162,(beaver_5:3.0E-6,beaver_7:0.007499)[&label=100]:0.020726)[&label=100]:0.014355,beaver_3:0.005802)[&label=39]:0.001011,(beaver_4:2.92E-4,beaver_6:0.002284)[&label=65]:0.004955)[&label=96]:0.00751)[&label=100]:0.052369)[&label=87,!color=#000000]:0.007172,((human_1:2.0E-6,human_2:2.0E-6)[&label=72]:0.001652,human_3:0.032316)[&label=87,!color=#000000]:0.007172);
